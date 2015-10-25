@@ -19,6 +19,12 @@ namespace Snake
             y = 0;
             sym = '*';
         }
+        public Point(Point p)
+        {
+            x = p.x;
+            y = p.y;
+            sym = p.sym;
+        }
         public Point(int x, int y)
         {
             this.x = x;
@@ -73,6 +79,17 @@ namespace Snake
             Console.SetCursorPosition(x, y);
             Console.Write(sym);
             Console.ResetColor();
+        }
+        public void Move(int offset, Direction direction)
+        {
+            switch(direction)
+            {
+                case (Direction.DOWN): y=y+offset; break;
+                case (Direction.LEFT): x=x-offset; break;
+                case (Direction.RIGHT): x=x+offset; break;
+                case (Direction.UP): y=y-offset; break;
+                default: Console.WriteLine("Error"); break;
+            }
         }
     }
 }

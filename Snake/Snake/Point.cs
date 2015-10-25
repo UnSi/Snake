@@ -91,5 +91,10 @@ namespace Snake
                 default: Console.WriteLine("Error"); break;
             }
         }
+        public void Clear()
+        {
+            sym = ' ';
+            Draw();
+        }
     }
 }

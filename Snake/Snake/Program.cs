@@ -9,11 +9,11 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            Point p1 = new Point(1, 3, true);
-            Point p2 = new Point(4, 5, '#', true);
+            Point p1 = new Point(1,3);
+            p1.Draw();
 
-            HorizontalLine hl1 = new HorizontalLine(5, 10, 8, '+', true);
-            VerticalLine vl1 = new VerticalLine(11, 8, 15, '*', true);
+            Point p2 = new Point(4,5,'#');
+            p2.Draw();
 
             Console.ReadLine();
         }

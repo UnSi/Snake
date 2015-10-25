@@ -5,10 +5,8 @@ using System.Text;
 
 namespace Snake
 {
-    class VerticalLine
+    class VerticalLine : Figure
     {
-        List<Point> plist;
-
         //****************constructors******************
         public VerticalLine(int x, int yLeft, int yRight, char sym)
         {
@@ -28,13 +26,5 @@ namespace Snake
             if (draw) this.Draw();
         }
         //****************constructors******************
-
-        public void Draw()
-        {
-            foreach (Point p in plist)
-            {
-                p.Draw();
-            }
-        }
     }
 }

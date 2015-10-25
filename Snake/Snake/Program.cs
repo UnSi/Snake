@@ -9,11 +9,12 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            Point p1 = new Point(1, 3, true);
-            Point p2 = new Point(4, 5, '#', true);
+            Console.SetBufferSize(120, 50);
 
-            HorizontalLine hl1 = new HorizontalLine(5, 10, 8, '+', true);
-            VerticalLine vl1 = new VerticalLine(11, 8, 15, '*', true);
+            HorizontalLine upLine = new HorizontalLine(0, 118, 0, '+', true);
+            HorizontalLine downLine= new HorizontalLine(0, 118, 49, '+', true);
+            VerticalLine leftLine = new VerticalLine(0, 0, 49, '+', true);
+            VerticalLine rightLine = new VerticalLine(118, 0, 49, '+', true);
 
             Console.ReadLine();
         }

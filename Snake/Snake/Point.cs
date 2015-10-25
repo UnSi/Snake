@@ -12,6 +12,13 @@ namespace Snake
         public char sym;
         public ConsoleColor col;
 
+        //****************constructors******************
+        public Point()
+        {
+            x = 0;
+            y = 0;
+            sym = '*';
+        }
         public Point(int x, int y, char sym)
         {
             this.x = x;
@@ -28,9 +35,17 @@ namespace Snake
         {
             this.x = x;
             this.y = y;
+            this.sym = sym;
+            this.col = col;
+        }
+        public Point(int x, int y, ConsoleColor col)
+        {
+            this.x = x;
+            this.y = y;
             this.sym = '*';
             this.col = col;
         }
+        //****************constructors******************
  
         public void Draw()
         {

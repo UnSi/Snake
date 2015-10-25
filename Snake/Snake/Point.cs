@@ -19,17 +19,26 @@ namespace Snake
             y = 0;
             sym = '*';
         }
+        public Point(int x, int y)
+        {
+            this.x = x;
+            this.y = y;
+            this.sym = '*';
+        }
         public Point(int x, int y, char sym)
         {
             this.x = x;
             this.y = y;
             this.sym = sym;
         }
-        public Point(int x, int y)
+
+        // с цветом
+        public Point(int x, int y, ConsoleColor col)
         {
             this.x = x;
             this.y = y;
             this.sym = '*';
+            this.col = col;
         }
         public Point(int x, int y, char sym, ConsoleColor col)
         {
@@ -38,13 +47,23 @@ namespace Snake
             this.sym = sym;
             this.col = col;
         }
-        public Point(int x, int y, ConsoleColor col)
+
+        // с рисованием
+        public Point(int x, int y, bool draw)
         {
             this.x = x;
             this.y = y;
             this.sym = '*';
-            this.col = col;
+            if (draw) this.Draw();
         }
+        public Point(int x, int y, char sym,bool draw)
+        {
+            this.x = x;
+            this.y = y;
+            this.sym = sym;
+            if (draw) this.Draw();
+        }
+
         //****************constructors******************
  
         public void Draw()

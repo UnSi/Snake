@@ -29,7 +29,6 @@ namespace Snake
             plist.Add(head);
             tail.Clear();
             head.Draw();
-
         }
 
         public Point GetNextPoint()
@@ -48,6 +47,18 @@ namespace Snake
                 case (ConsoleKey.UpArrow): direction = Direction.UP; break;
                 case (ConsoleKey.DownArrow): direction = Direction.DOWN; break;
             }
+        }
+        public bool Eat(Point food)
+        {
+            Point head = GetNextPoint();
+            if (head.IsHit(food))
+            {
+                food.sym = head.sym;
+                plist.Add(food); 
+                return true;
+            }
+            else
+            return false;
         }
 
     }

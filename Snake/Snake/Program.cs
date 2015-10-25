@@ -22,13 +22,17 @@ namespace Snake
             Point p = new Point(4,5);
             Snake snake = new Snake(p, 4, Direction.RIGHT);
             snake.Draw();
-            for (int i = 0; i < 10; i++)
+            while(true)
             {
-                Thread.Sleep(500);
+                if (Console.KeyAvailable)
+                {
+                    snake.HandleKey(Console.ReadKey().Key);
+                }
+                Thread.Sleep(100);
                 snake.Move();
             }
 
-            Console.ReadLine();
+          //  Console.ReadLine();
         }
         
     }

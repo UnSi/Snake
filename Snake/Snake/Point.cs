@@ -34,7 +34,7 @@ namespace Snake
  
         public void Draw()
         {
-            if (col!=null)
+            if (col!=ConsoleColor.Black)
             Console.ForegroundColor = col;
             Console.SetCursorPosition(x, y);
             Console.Write(sym);

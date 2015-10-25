@@ -9,28 +9,14 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            Draw(1, 3);
-            Draw(4, 5, '#');
-            Draw(4, 7, '#', ConsoleColor.Blue);
+            Point p1 = new Point(1,3);
+            p1.Draw();
+
+            Point p2 = new Point(4,5,'#');
+            p2.Draw();
 
             Console.ReadLine();
         }
-        static void Draw(int x, int y, char sym)
-        {
-            Console.SetCursorPosition(x, y);
-            Console.Write(sym);
-        }
-        static void Draw(int x, int y)
-        {
-            Console.SetCursorPosition(x, y);
-            Console.Write('*');
-        }
-        static void Draw(int x, int y, char sym, ConsoleColor col)
-        {
-            Console.ForegroundColor = col;
-            Console.SetCursorPosition(x, y);
-            Console.Write(sym);
-            Console.ResetColor();
-        }
+        
     }
 }

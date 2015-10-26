@@ -10,54 +10,50 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            Console.SetBufferSize(120, 50);
+            Console.SetBufferSize(Console.WindowWidth, Console.WindowHeight); 
 
             // Рамка
-            HorizontalLine upLine = new HorizontalLine(0, 118, 0, '+');
-            HorizontalLine downLine= new HorizontalLine(0, 118, 49, '+');
-            VerticalLine leftLine = new VerticalLine(0, 0, 49, '+');
-            VerticalLine rightLine = new VerticalLine(118, 0, 49, '+');
+            Walls walls = new Walls(Console.WindowWidth, Console.WindowHeight);
+            walls.Draw();
 
             //Змея
             Point p = new Point(4,5);
-            Figure fsnake = new Snake(p, 4, Direction.RIGHT);
-            fsnake.Draw();
-            Snake snake = (Snake)fsnake;
-           // Snake snake = new Snake(p, 4, Direction.RIGHT);
-          //  snake.Draw();
-            List<Figure> figures = new List<Figure>();
-            figures.Add(upLine);
-            figures.Add(downLine);
-            figures.Add(leftLine);
-            figures.Add(rightLine);
-            figures.Add(snake);
-            foreach (Figure f in figures)
-            {
-                f.Draw();
-            }
+            Snake snake = new Snake(p, 4, Direction.RIGHT);
+            snake.Draw();
 
             //Еда
-            FoodCreator foodCreator = new FoodCreator(120, 50, '$');
+            FoodCreator foodCreator = new FoodCreator(Console.WindowWidth, Console.WindowHeight, '$');
             Point food = foodCreator.CreateFood();
+            Console.ForegroundColor = ConsoleColor.Cyan;
             food.Draw();
+            Console.ResetColor();
 
             //Двигаем
             while(true)
             {
+                if (walls.IsHit(snake) || snake.IsHitTail())
+                    break;
                 if (snake.Eat(food))
                 {
                     food = foodCreator.CreateFood();
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                     food.Draw();
+                    Console.ResetColor();
                 }
                 else snake.Move();
-                Thread.Sleep(100);
+                Thread.Sleep(200);
                 if (Console.KeyAvailable)
                 {
                     snake.HandleKey(Console.ReadKey().Key);
                 }
-                
-                //snake.Move();
             }
+            Console.SetCursorPosition(Console.WindowWidth / 2, Console.WindowHeight / 2);
+            snake.Clear();
+            food.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Good Bye!");
+            Console.ResetColor();
+            Console.ReadLine();
         }
     }
 }

@@ -60,6 +60,21 @@ namespace Snake
             else
             return false;
         }
+        internal bool IsHitTail()
+        {
+            var head = plist.Last();
+            for (int i = 0; i < plist.Count - 1; i++)
+            {
+                if (head.IsHit(plist[i])) return true;
+            }
+            return false;
+        }
 
+        internal void Clear()
+        {
+            foreach (Point p in plist)
+                plist.Remove(p);
+            Draw();
+        }
     }
 }

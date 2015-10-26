@@ -16,15 +16,15 @@ namespace Snake
                 plist.Add(new Point(x, y, sym));
             }
         }
-        public HorizontalLine(int xLeft, int xRight, int y, char sym, bool draw)
-        {
-            plist = new List<Point>();
-            for (int x = xLeft; x <= xRight; x++)
-            {
-                plist.Add(new Point(x, y, sym));
-            }
-            if (draw) this.Draw();
-        }
         //****************constructors******************
+        public override void Draw()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            foreach (Point p in plist)
+            {
+                p.Draw();
+            }
+            Console.ResetColor();
+        }
     }
 }

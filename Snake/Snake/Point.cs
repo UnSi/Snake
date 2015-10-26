@@ -10,7 +10,6 @@ namespace Snake
         public int x;
         public int y;
         public char sym;
-        public ConsoleColor col;
 
         //****************constructors******************
         public Point()
@@ -38,47 +37,12 @@ namespace Snake
             this.sym = sym;
         }
 
-        // с цветом
-        public Point(int x, int y, ConsoleColor col)
-        {
-            this.x = x;
-            this.y = y;
-            this.sym = '*';
-            this.col = col;
-        }
-        public Point(int x, int y, char sym, ConsoleColor col)
-        {
-            this.x = x;
-            this.y = y;
-            this.sym = sym;
-            this.col = col;
-        }
-
-        // с рисованием
-        public Point(int x, int y, bool draw)
-        {
-            this.x = x;
-            this.y = y;
-            this.sym = '*';
-            if (draw) this.Draw();
-        }
-        public Point(int x, int y, char sym,bool draw)
-        {
-            this.x = x;
-            this.y = y;
-            this.sym = sym;
-            if (draw) this.Draw();
-        }
-
         //****************constructors******************
  
         public void Draw()
         {
-            if (col!=ConsoleColor.Black)
-            Console.ForegroundColor = col;
             Console.SetCursorPosition(x, y);
             Console.Write(sym);
-            Console.ResetColor();
         }
         public void Move(int offset, Direction direction)
         {

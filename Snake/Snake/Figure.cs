@@ -11,7 +11,7 @@ namespace Snake
 
 
 
-        public void Draw()
+        public virtual void Draw()
         {
             foreach (Point p in plist)
             {

@@ -13,15 +13,28 @@ namespace Snake
             Console.SetBufferSize(120, 50);
 
             // Рамка
-            HorizontalLine upLine = new HorizontalLine(0, 118, 0, '+', true);
-            HorizontalLine downLine= new HorizontalLine(0, 118, 49, '+', true);
-            VerticalLine leftLine = new VerticalLine(0, 0, 49, '+', true);
-            VerticalLine rightLine = new VerticalLine(118, 0, 49, '+', true);
+            HorizontalLine upLine = new HorizontalLine(0, 118, 0, '+');
+            HorizontalLine downLine= new HorizontalLine(0, 118, 49, '+');
+            VerticalLine leftLine = new VerticalLine(0, 0, 49, '+');
+            VerticalLine rightLine = new VerticalLine(118, 0, 49, '+');
 
             //Змея
             Point p = new Point(4,5);
-            Snake snake = new Snake(p, 4, Direction.RIGHT);
-            snake.Draw();
+            Figure fsnake = new Snake(p, 4, Direction.RIGHT);
+            fsnake.Draw();
+            Snake snake = (Snake)fsnake;
+           // Snake snake = new Snake(p, 4, Direction.RIGHT);
+          //  snake.Draw();
+            List<Figure> figures = new List<Figure>();
+            figures.Add(upLine);
+            figures.Add(downLine);
+            figures.Add(leftLine);
+            figures.Add(rightLine);
+            figures.Add(snake);
+            foreach (Figure f in figures)
+            {
+                f.Draw();
+            }
 
             //Еда
             FoodCreator foodCreator = new FoodCreator(120, 50, '$');

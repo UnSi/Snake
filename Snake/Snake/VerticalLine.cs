@@ -16,15 +16,6 @@ namespace Snake
                 plist.Add(new Point(x, y, sym));
             }
         }
-        public VerticalLine(int x, int yLeft, int yRight, char sym, bool draw)
-        {
-            plist = new List<Point>();
-            for (int y = yLeft; y <= yRight; y++)
-            {
-                plist.Add(new Point(x, y, sym));
-            }
-            if (draw) this.Draw();
-        }
         //****************constructors******************
     }
 }
